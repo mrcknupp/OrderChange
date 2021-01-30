@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="insCode"
+		noDataText="No Found"
+		title="Instructions Codes"
+		search=".onValueHelpSearch"
+		confirm=".onValueHelpClose"
+		cancel=".onValueHelpClose"
+		items="{/shZzcodeSet}" 
+		contentHeight="30em"
+		contentWidth="30em">
+		<ColumnListItem id="ins11">
+			<cells>
+				<ObjectIdentifier id="icel11" text="{Zzcode}" />
+				<Text id="icel12" text="{Zzdescr}" />
+				<Text id="icel13" text="{Zzkeyword}" visible="false"/>
+				<Text id="icel14" text="{Zzgroup}" visible="false"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column id="icol11" width="5em">
+				<header>
+					<Text id="icolt11" text="Code" />
+				</header>
+			</Column>
+			<Column id="icol12" width="20em">
+				<header>
+					<Text id="icolt12" text="Description" />
+				</header>
+			</Column>
+			<Column id="icol13" width="5em">
+				<header>
+					<Text id="icolt13" text="Keyword" visible="false"/>
+				</header>
+			</Column>
+			<Column id="icol14" width="5em">
+				<header>
+					<Text id="icolt14" text="Group" visible="false"/>
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

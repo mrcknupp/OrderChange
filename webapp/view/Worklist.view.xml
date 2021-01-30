@@ -1,0 +1,43 @@
+<mvc:View xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table" xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:layout="sap.ui.layout" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="soch.otc274Monitor.controller.Worklist"
+	height="100%">
+	<Page id="pag1" class="sapUiFioriObjectPage" busyIndicatorDelay="0">
+		<content>
+			<VBox id="v01" fitContainer="true" busyIndicatorDelay="0">
+				<ScrollContainer id="sc01" vertical="true" height="100%" busyIndicatorDelay="0">
+					<!--SmartFilter-->
+					<smartFilterBar:SmartFilterBar id="smartFilterBar" persistencyKey="UniqueAndStablePersistencyKey" considerSelectionVariants="true"
+						entitySet="ZUS_OTC241_CH_MONITOR" enableBasicSearch="true" initialise="onInitSmartFilterBar" basicSearchFieldName="vbeln"
+						showClearButton="true" busyIndicatorDelay="0">
+						<!-- layout data used to make the table growing but the filter bar fixed -->
+						<smartFilterBar:layoutData>
+							<FlexItemData id="flex01" shrinkFactor="0"/>
+						</smartFilterBar:layoutData>
+					</smartFilterBar:SmartFilterBar>
+					<!--Toolbuttons-->
+					<HBox width="100%" id="hbox0" class="sapUiTinyMarginTop" alignContent="Start" alignItems="Start" justifyContent="End" busyIndicatorDelay="0">
+						<Button xmlns="sap.m" id="btInstructions" class="sapUiTinyMarginBegin" text="GMITSU - Instructions" press="onInstructions"/>
+						<Button xmlns="sap.m" id="btCreateUpdate" class="sapUiMediumMarginBegin" text="Create/Update Version" press="onCreateUpdate"/>
+						<Button xmlns="sap.m" id="btDelete" class="sapUiTinyMarginBegin" text="Cancel Version" press="onDelete"/>
+						<Button xmlns="sap.m" id="btApprove" class="sapUiMediumMarginBegin" text="Sales Approval" press="onApprove"/>
+						<Button xmlns="sap.m" id="btReject" class="sapUiTinyMarginBegin" text="Sales Rejection" press="onReject"/>
+						<Button xmlns="sap.m" id="btReview" class="sapUiTinyMarginBegin sapUiMediumMarginEnd" text="Release IDOC" press="onReview" />
+					</HBox>
+					<!--TableDisplay-->
+					<smartTable:SmartTable id="stDisplay" smartFilterId="smartFilterBar" visible="true" entitySet="ZUS_OTC241_CH_MONITOR"
+						useExportToExcel="true" header="Sales Orders" class="sapUiMediumMarginBegin sapUiMediumMarginBottom sapUiMediumMarginEnd"
+						tableBindingPath="/ZUS_OTC241_CH_MONITOR" beforeRebindTable="onBeforeRebindTable" enableAutoBinding="true" useVariantManagement="false"
+						showVariantManagement="false" useTablePersonalisation="true" showRowCount="true" busyIndicatorDelay="0">
+						<t:Table id="table01" selectionMode="MultiToggle" rowSelectionChange="onSelectionChange" visibleRowCount="19"
+							rows="{/ZUS_OTC241_CH_MONITOR}">
+							<!--<rowSettingsTemplate>-->
+							<!--	<RowSettings highlight="{Status}"/>-->
+							<!--</rowSettingsTemplate>-->
+						</t:Table>
+					</smartTable:SmartTable>
+				</ScrollContainer>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

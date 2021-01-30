@@ -1,0 +1,36 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="sdVrkme" 
+	noDataText="No Found" 
+	title="Sales Unit" 
+	search=".onValueHelpSearch" 
+	confirm=".onValueHelpClose"
+    cancel=".onValueHelpClose" 
+    items="{/shVrkmeSet}" 
+    contentHeight="30em" 
+    contentWidth="40em">
+		<ColumnListItem id="cli61">
+			<cells>
+				<ObjectIdentifier id="cel61" text="{Vrkme}"/>
+				<Text id="cel62" text="{Measurement}"/>
+				<Text id="cel63" text="{Dimension}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column id="col61" width="5em">
+				<header>
+					<Text id="colt61" text="Unit"/>
+				</header>
+			</Column>
+			<Column id="col62" width="20em">
+				<header>
+					<Text id="colt62" text="Description"/>
+				</header>
+			</Column>
+			<Column id="col63" width="13em">
+				<header>
+					<Text id="colt63" text="Dimension"/>
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

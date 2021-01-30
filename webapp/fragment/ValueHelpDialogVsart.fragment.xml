@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+<TableSelectDialog id="sdVsart"
+		noDataText="No Found"
+		title="Shipping Type"
+		search=".onValueHelpSearch"
+		confirm=".onValueHelpClose"
+		cancel=".onValueHelpClose"
+		items="{/shVsartSet}" 
+		contentHeight="15em"
+		contentWidth="15em">
+		<ColumnListItem id="cli71">
+			<cells>
+				<ObjectIdentifier id="cel71" text="{Vsart}" />
+				<Text id="cel72" text="{Bezei}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column id="col71" width="6em">
+				<header>
+					<Text id="colt71" text="Type" />
+				</header>
+			</Column>
+			<Column id="col72" width="10em">
+				<header>
+					<Text id="colt72" text="Description" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

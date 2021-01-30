@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="sdAbgru"
+		noDataText="No Found"
+		title="Rejection"
+		search=".onValueHelpSearch"
+		confirm=".onValueHelpClose"
+		cancel=".onValueHelpClose"
+		items="{/shAbgruSet}" 
+		contentHeight="30em"
+		contentWidth="30em">
+		<ColumnListItem id="cli11">
+			<cells>
+				<ObjectIdentifier id="cel11" text="{Abgru}" />
+				<Text id="cel12" text="{Bezei}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column id="col11" width="5em">
+				<header>
+					<Text id="colt11" text="Number" />
+				</header>
+			</Column>
+			<Column id="col12" width="10em">
+				<header>
+					<Text id="colt12" text="Description" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

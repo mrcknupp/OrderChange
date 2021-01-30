@@ -1,0 +1,36 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="insMark"
+		noDataText="No Found"
+		title="Mark Instructions"
+		search=".onValueHelpSearch"
+		confirm=".onValueHelpClose"
+		cancel=".onValueHelpClose"
+		items="{/shMarkSet}" 
+		contentHeight="30em"
+		contentWidth="40em">
+		<ColumnListItem id="ins21">
+			<cells>
+				<ObjectIdentifier id="icel21" text="{Zzcode}" />
+				<Text id="icel22" text="{Zztext}" />
+				<Text id="icel23" text="{Zzlevel}" visible="false"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column id="icol21" width="5em">
+				<header>
+					<Text id="icolt21" text="Code" />
+				</header>
+			</Column>
+			<Column id="icol22" width="30em">
+				<header>
+					<Text id="icolt22" text="Description" />
+				</header>
+			</Column>
+			<Column id="icol23" width="5em">
+				<header>
+					<Text id="icolt23" text="Level" visible="false"/>
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

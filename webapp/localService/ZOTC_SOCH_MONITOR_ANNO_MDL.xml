@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='BACKEND_TRUSTED')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='BACKEND_TRUSTED')/$value"><edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='BACKEND_TRUSTED')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference Uri="../../../sap/ZOTC_SOCH_MONITOR_SRV/$metadata"><edmx:Include Namespace="ZOTC_SOCH_MONITOR_SRV" Alias="SAP"/></edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ZOTC_SOCH_MONITOR_ANNO_MDL.v1">
+			<Annotations Target="ZOTC_SOCH_MONITOR_SRV.I_BillingBlockReasonType/BillingBlockReason_Text"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="ZOTC_SOCH_MONITOR_SRV.I_BillingBlockReasonTextType/BillingBlockReasonDescription"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="ZOTC_SOCH_MONITOR_SRV.I_DeliveryBlockReasonType/DeliveryBlockReason"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="ZOTC_SOCH_MONITOR_SRV.I_DeliveryBlockReasonType/DeliveryBlockReason_Text"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="ZOTC_SOCH_MONITOR_SRV.I_DeliveryBlockReasonTextType/DeliveryBlockReasonText"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="ZOTC_SOCH_MONITOR_SRV.ZUS_OTC241_CH_MONITORType/kun1c_name1"><Annotation Term="UI.HiddenFilter"/></Annotations><Annotations/>
+			<Annotations Target="ZOTC_SOCH_MONITOR_SRV.ZUS_OTC241_CH_MONITORType/lifsp_Text"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="ZOTC_SOCH_MONITOR_SRV.ZUS_OTC241_CH_MONITORType/faksk_Text"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="ZOTC_SOCH_MONITOR_SRV.ZUS_OTC241_CH_MONITORType/vbeln"><Annotation Term="Common.SemanticObject" String="SalesOrder"/></Annotations>
+			<Annotations Target="ZOTC_SOCH_MONITOR_SRV.ZUS_OTC241_CH_MONITORType/sales_cust"><Annotation Term="Common.SemanticObject" String="BusinessPartner"/></Annotations>
+			<Annotations Target="ZOTC_SOCH_MONITOR_SRV.ZUS_OTC241_CH_MONITORType/ship_to"><Annotation Term="Common.SemanticObject" String="ZShipTo"/></Annotations>
+			<Annotations Target="ZOTC_SOCH_MONITOR_SRV.ZUS_OTC241_CH_MONITORType/Material"><Annotation Term="Common.SemanticObject" String="Material"/></Annotations>
+			<Annotations Target="ZOTC_SOCH_MONITOR_SRV.ZUS_OTC241_CH_MONITORType/vgbel"><Annotation Term="Common.SemanticObject" String="SalesInquiry"/></Annotations>
+			<Annotations Target="ZOTC_SOCH_MONITOR_SRV.ZUS_OTC241_CH_MONITORType/ProductionOrder"><Annotation Term="Common.SemanticObject" String="ProductionOrder"/></Annotations>
+			<Annotations Target="ZOTC_SOCH_MONITOR_SRV.ZUS_OTC241_CH_MONITORType">
+				<Annotation Term="UI.HeaderInfo">
+					<Record><PropertyValue Property="TypeName" String="Sales Documents"/><PropertyValue Property="TypeNamePlural" String="Sales Documents"/></Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<!--<Record Type="UI.DataFieldWithIntentBasedNavigation">-->
+						<Record Type="UI.DataField">
+							<PropertyValue Property="SemanticObject" String="SalesOrder"/>
+							<PropertyValue Property="Action" String="display"/>
+							<PropertyValue Property="Value" Path="vbeln"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="posnr"/>
+						</Record>
+						<Record Type="UI.DataField"><PropertyValue Property="SemanticObject" String="SalesInquiry"/><PropertyValue Property="Action" String="display"/><PropertyValue Property="Value" Path="vgbel"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="version"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="change_status"/></Record>
+						<Record Type="UI.DataFieldWithIntentBasedNavigation"><PropertyValue Property="SemanticObject" String="BusinessPartner"/><PropertyValue Property="Action" String="display"/><PropertyValue Property="Value" Path="sales_cust"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="sales_cust_name"/></Record>
+						<Record Type="UI.DataFieldWithIntentBasedNavigation"><PropertyValue Property="SemanticObject" String="ZShipTo"/><PropertyValue Property="Action" String="display"/><PropertyValue Property="Value" Path="ship_to"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="ship_to_name"/></Record>
+						<Record Type="UI.DataFieldWithIntentBasedNavigation"><PropertyValue Property="SemanticObject" String="Material"/><PropertyValue Property="Action" String="display"/><PropertyValue Property="Value" Path="Material"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="MaterialText"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="kunag"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="kunag_name1"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="werks"/></Record>
+						<Record Type="UI.DataFieldWithIntentBasedNavigation"><PropertyValue Property="SemanticObject" String="ProductionOrder"/><PropertyValue Property="Action" String="display"/><PropertyValue Property="Value" Path="ProductionOrder"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="zzurn"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="agreementNumber"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="shipCode"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="freightTerms"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant">
+					<Record>
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType"><PropertyValue Property="Property" PropertyPath="erdat"/><PropertyValue Property="Descending" Bool="false"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>vbeln</PropertyPath>
+						<PropertyPath>sales_cust</PropertyPath>
+						<PropertyPath>ship_to</PropertyPath>
+						<PropertyPath>accnt_mgr</PropertyPath>
+						<PropertyPath>bstkd_e</PropertyPath>
+						<PropertyPath>werks</PropertyPath>
+						<PropertyPath>vbap_erdat</PropertyPath>
+						<PropertyPath>erdat</PropertyPath>
+						<PropertyPath>Legacy_Number</PropertyPath>
+						<PropertyPath>kunag</PropertyPath>
+						<PropertyPath>lifsk</PropertyPath>
+						<PropertyPath>txt30</PropertyPath>
+						<PropertyPath>kun1c</PropertyPath>
+						<PropertyPath>zzsdc</PropertyPath>
+						<PropertyPath>zzurn</PropertyPath>
+						<PropertyPath>lifsp</PropertyPath>
+					</Collection>
+				</Annotation>
+
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,36 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="sdZzsdc"
+		noDataText="No Found"
+		title="Shorty-Dest"
+		search=".onValueHelpSearch"
+		confirm=".onValueHelpClose"
+		cancel=".onValueHelpClose"
+		items="{/shZzsdcSet}" 
+		contentHeight="30em"
+		contentWidth="30em">
+		<ColumnListItem id="cli101">
+			<cells>
+				<ObjectIdentifier id="cel101" text="{Zzsdc}" />
+				<Text id="cel102" text="{Kunnr}" />
+				<Text id="cel103" text="{Name1}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column id="col101" width="6em">
+				<header>
+					<Text id="colt101" text="Code" />
+				</header>
+			</Column>
+			<Column id="col102" width="6em">
+				<header>
+					<Text id="colt102" text="Customer" />
+				</header>
+			</Column>
+			<Column id="col103" width="10em">
+				<header>
+					<Text id="colt103" text="Description" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

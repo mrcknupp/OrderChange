@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="sdZzshipCode"
+		noDataText="No Found"
+		title="Ship Code"
+		search=".onValueHelpSearch"
+		confirm=".onValueHelpClose"
+		cancel=".onValueHelpClose"
+		items="{/shShipCodeSet}" 
+		contentHeight="30em"
+		contentWidth="45em">
+		<ColumnListItem id="cli111">
+			<cells>
+				<ObjectIdentifier id="cel111" text="{ZzshipCode}" />
+				<Text id="cel112" text="{Name}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column id="col111" width="5em">
+				<header>
+					<Text id="colt111" text="Code" />
+				</header>
+			</Column>
+			<Column id="col112" width="30em">
+				<header>
+					<Text id="colt112" text="Description" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

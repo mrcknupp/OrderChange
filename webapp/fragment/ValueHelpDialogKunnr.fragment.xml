@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="sdKunnr"
+		noDataText="No Found"
+		title="Sold-To"
+		search=".onValueHelpSearch"
+		confirm=".onValueHelpClose"
+		cancel=".onValueHelpClose"
+		items="{/shKunnrSet}" 
+		contentHeight="30em"
+		contentWidth="30em">
+		<ColumnListItem id="cli21">
+			<cells>
+				<ObjectIdentifier id="cel21" text="{Kunnr}" />
+				<Text id="cel22" text="{Name1}" />
+				<Text id="cel23" text="{Land1}" />
+				<Text id="cel24" text="{Regio}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column id="col21" width="6em">
+				<header>
+					<Text id="colt21" text="Number" />
+				</header>
+			</Column>
+			<Column id="col22" width="10em">
+				<header>
+					<Text id="colt22" text="Description" />
+				</header>
+			</Column>
+			<Column id="col23" width="5em">
+				<header>
+					<Text id="colt23" text="Country" />
+				</header>
+			</Column>
+			<Column id="col24" width="5em">
+				<header>
+					<Text id="colt24" text="Regio" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

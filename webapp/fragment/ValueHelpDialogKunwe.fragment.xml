@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="sdKunwe"
+		noDataText="No Found"
+		title="Ship-To"
+		search=".onValueHelpSearch"
+		confirm=".onValueHelpClose"
+		cancel=".onValueHelpClose"
+		items="{/shKunweSet}" 
+		contentHeight="30em"
+		contentWidth="30em">
+		<ColumnListItem id="cli31">
+			<cells>
+				<ObjectIdentifier id="cel31" text="{Kunwe}" />
+				<Text id="cel32" text="{Name1}" />
+				<Text id="cel33" text="{Land1}" />
+				<Text id="cel34" text="{Regio}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column id="col31" width="6em">
+				<header>
+					<Text id="colt31" text="Number" />
+				</header>
+			</Column>
+			<Column id="col32" width="10em">
+				<header>
+					<Text id="colt32" text="Description" />
+				</header>
+			</Column>
+			<Column id="col33" width="5em">
+				<header>
+					<Text id="colt33" text="Country" />
+				</header>
+			</Column>
+			<Column id="col34" width="5em">
+				<header>
+					<Text id="colt34" text="Regio" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

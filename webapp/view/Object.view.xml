@@ -1,0 +1,125 @@
+<mvc:View controllerName="soch.otc274Monitor.controller.Object" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table"
+	xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:semantic="sap.f.semantic" xmlns:footerbar="sap.ushell.ui.footerbar">
+	<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false" busy="{objectView>/busy}"
+		busyIndicatorDelay="{objectView>/delay}">
+		<semantic:titleHeading>
+			<Title id="t01" text="Version History" class="Subtitle sapUiMediumMarginTop"/>
+		</semantic:titleHeading>
+		<semantic:headerContent>
+			<HBox width="100%" id="hbox0" class="sapUiTinyMarginTop" alignContent="Start" alignItems="Start" justifyContent="End">
+				<Button xmlns="sap.m" id="btBack" class="sapUiTinyMarginBegin" text="Back" press="onNavBack" type="Emphasized"/>
+			</HBox>
+		</semantic:headerContent>
+		<semantic:content>
+			<!--<smartTable:SmartTable id="versDisplay" visible="true" entitySet="VERSIONFULLSET" tableType="ResponsiveTable" useExportToExcel="true"-->
+			<!--	class="sapUiMediumMarginBegin sapUiMediumMarginBottom sapUiMediumMarginEnd" tableBindingPath="/versionFullSet" enableAutoBinding="false"-->
+			<!--	useVariantManagement="false" showTablePersonalisation="true" useTablePersonalisation="true" showRowCount="true">-->
+			<t:Table id="tabHistory" rows="{/versionFullSet}" visibleRowCount="18" selectionMode="None" sort="onSort" filter="onFilter">
+				<t:toolbar>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<!--<m:Button icon="sap-icon://sorting-ranking" tooltip="Sort ascending across Categories and Name" press="sortCategoriesAndName"/>-->
+						<Button icon="sap-icon://excel-attachment" tooltip="Download excel" press="onExcel"/>
+						<Button icon="sap-icon://clear-filter" tooltip="Clear filter" press="onClearFilter"/>
+						<Button icon="sap-icon://reset" tooltip="Clear all sortings" press="onClearSortings"/>
+					</Toolbar>
+				</t:toolbar>
+				<t:columns >
+					<t:Column id="SalesDocument" width="9rem" sortProperty="SalesDocument" filterProperty="SalesDocument" defaultFilterOperator="StartsWith">
+						<Label id="l01" text="Sales Document"/>
+						<t:template>
+							<Text id="te01" text="{Vbeln}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="Item" width="5rem" sortProperty="Item" filterProperty="Item" defaultFilterOperator="StartsWith">
+						<Label id="l02" text="Item"/>
+						<t:template>
+							<Text id="te02" text="{Posnr}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="Version" width="5rem" sortProperty="Version" filterProperty="Version" defaultFilterOperator="StartsWith">
+						<Label id="l03" text="Version"/>
+						<t:template>
+							<Text id="te03" text="{ChangeNumber}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="ChangeStatus" width="9rem" sortProperty="ChangeStatus" filterProperty="ChangeStatus" defaultFilterOperator="StartsWith">
+						<Label id="l10" text="Change Status"/>
+						<t:template>
+							<Text id="te10" text="{ChangeStatus}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="FieldName" width="11rem" sortProperty="FieldName" filterProperty="FieldName" defaultFilterOperator="StartsWith">
+						<Label id="l04" text="Field Name"/>
+						<t:template>
+							<Text id="te04" text="{FieldName}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="OldValue" width="11rem" sortProperty="OldValue" filterProperty="OldValue" defaultFilterOperator="StartsWith">
+						<Label id="l06" text="Old Value"/>
+						<t:template>
+							<Text id="te06" text="{OldValue}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="NewValue" width="11rem" sortProperty="NewValue" filterProperty="NewValue" defaultFilterOperator="StartsWith">
+						<Label id="l05" text="New Value"/>
+						<t:template>
+							<Text id="te05" text="{NewValue}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="CreatedOn" width="6rem" sortProperty="CreatedOn" filterProperty="CreatedOn" defaultFilterOperator="StartsWith">
+						<Label id="l07" text="Created On"/>
+						<t:template>
+							<Text id="te07" text="{CreateOn}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="CreatedAt" width="6rem" sortProperty="CreatedAt" filterProperty="CreatedAt" defaultFilterOperator="StartsWith">
+						<Label id="l08" text="Created At"/>
+						<t:template>
+							<Text id="te08" text="{CreateAt}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="Requestedby" width="11rem" sortProperty="Requestedby" filterProperty="Requestedby" defaultFilterOperator="StartsWith">
+						<Label id="l09" text="Requested by"/>
+						<t:template>
+							<Text id="te09" text="{RequestedBy}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="ChangeOn" width="6rem" sortProperty="ChangeOn" filterProperty="ChangeOn" defaultFilterOperator="StartsWith">
+						<Label id="l11" text="Change On"/>
+						<t:template>
+							<Text id="te11" text="{ChangeOn}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="ChangeAt" width="6rem" sortProperty="ChangeAt" filterProperty="ChangeAt" defaultFilterOperator="StartsWith">
+						<Label id="l12" text="Change At"/>
+						<t:template>
+							<Text id="te12" text="{ChangeAt}" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="Changeby" width="11rem" sortProperty="Changeby" filterProperty="Changeby" defaultFilterOperator="StartsWith">
+						<Label id="l13" text="Change by"/>
+						<t:template>
+							<Text id="te13" text="{ChangeBy}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="Reason" width="20rem" sortProperty="Reason" filterProperty="Reason" defaultFilterOperator="StartsWith">
+						<Label id="l14" text="Reason"/>
+						<t:template>
+							<Text id="te14" text="{Reason}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+					<t:Column id="Comments" width="20rem" sortProperty="Comments" filterProperty="Comments" defaultFilterOperator="StartsWith">
+						<Label id="l15" text="Comments"/>
+						<t:template>
+							<Text id="te15" text="{Comments}" wrapping="true"/>
+						</t:template>
+					</t:Column>
+				</t:columns>
+			</t:Table>
+			<!--</smartTable:SmartTable>-->
+		</semantic:content>
+	</semantic:SemanticPage>
+</mvc:View>

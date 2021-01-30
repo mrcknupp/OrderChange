@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="sdMatnr"
+		noDataText="No Found"
+		title="Material"
+		search=".onValueHelpSearch"
+		confirm=".onValueHelpClose"
+		cancel=".onValueHelpClose"
+		items="{/shMatnrSet}" 
+		contentHeight="30em"
+		contentWidth="30em">
+		<ColumnListItem id="cli51">
+			<cells>
+				<ObjectIdentifier id="cel51" text="{Matnr}" />
+				<Text id="cel52" text="{Maktg}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column id="col51" width="5em">
+				<header>
+					<Text id="colt51" text="Number" />
+				</header>
+			</Column>
+			<Column id="col52" width="10em">
+				<header>
+					<Text id="colt52" text="Description" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

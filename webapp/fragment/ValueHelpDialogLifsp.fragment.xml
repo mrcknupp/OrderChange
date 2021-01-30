@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="sdLifsp"
+		noDataText="No Found"
+		title="Delivery Block"
+		search=".onValueHelpSearch"
+		confirm=".onValueHelpClose"
+		cancel=".onValueHelpClose"
+		items="{/shLifspSet}" 
+		contentHeight="30em"
+		contentWidth="30em">
+		<ColumnListItem id="cli41">
+			<cells>
+				<ObjectIdentifier id="cel41" text="{Lifsp}" />
+				<Text id="cel42" text="{Vtext}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column id="col41" width="5em">
+				<header>
+					<Text id="colt41" text="Code" />
+				</header>
+			</Column>
+			<Column id="col42" width="10em">
+				<header>
+					<Text id="colt42" text="Description" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

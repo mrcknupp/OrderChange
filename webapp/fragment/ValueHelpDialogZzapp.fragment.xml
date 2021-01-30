@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="sdZzapp"
+		noDataText="No Found"
+		title="End Use"
+		search=".onValueHelpSearch"
+		confirm=".onValueHelpClose"
+		cancel=".onValueHelpClose"
+		items="{/shZzappSet}" 
+		contentHeight="30em"
+		contentWidth="30em">
+		<ColumnListItem id="cli81">
+			<cells>
+				<ObjectIdentifier id="cel81" text="{Zzapp}" />
+				<Text id="cel82" text="{Name}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column id="col81" width="5em">
+				<header>
+					<Text id="colt81" text="Code" />
+				</header>
+			</Column>
+			<Column id="col82" width="20em">
+				<header>
+					<Text id="colt82" text="Description" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

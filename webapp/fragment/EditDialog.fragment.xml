@@ -1,0 +1,461 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:sf="sap.ui.comp.smartform" xmlns:core="sap.ui.core"
+	xmlns:smartMultiInput="sap.ui.comp.smartmultiinput" xmlns:smartmultiedit="sap.ui.comp.smartmultiedit" xmlns:smartField="sap.ui.comp.smartfield">
+	<Dialog title="{i18n>dialogTitle}" class="sapUiPopupWithPadding" id="multipleEditingDialog" contentWidth="90rem" horizontalScrolling="false">
+		<content>
+			<sf:SmartForm id="multiEdit" editable="true">
+				<sf:layout>
+					<sf:Layout id="ll01" labelSpanM="12" labelSpanL="12" labelSpanXL="12"/>
+				</sf:layout>
+				<sf:groups>
+					<sf:Group id="g01">
+						<sf:GroupElement id="ge01">
+							<sf:elements>
+								<Label id="lBstkd" text="{i18n>Bstkd}" labelFor="Bstkd"/>
+								<Input id="Bstkd" placeholder="{i18n>Bstkd}" change="onGetValue"/>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge02">
+							<sf:elements>
+								<Label id="lPosex" text="{i18n>Posex}" labelFor="Posex"/>
+								<Input id="Posex" placeholder="{i18n>Posex}" change="onGetValue"/>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge03">
+							<sf:elements>
+								<Label id="lBstdk" text="{i18n>Bstdk}" labelFor="Bstdk"/>
+								<DatePicker id="Bstdk" placeholder="{i18n>Bstdk}" change="onGetValue"/>
+								<!--<Input id="Bstdk" showValueHelp="true" placeholder="{i18n>Bstdk}" valueHelpRequest="onVH_Bstdk" value="{FieldsAvailableSet>/Bstdk}"/>-->
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge04">
+							<sf:elements>
+								<Label id="lKunnr" text="{i18n>Kunnr}" labelFor="Kunnr"/>
+								<Input id="Kunnr" showValueHelp="true" placeholder="{i18n>Kunnr}" valueHelpRequest="onValueHelp" showSuggestion="true"
+									suggestionRows="{/shKunnrSet}" suggestionItemSelected="onGetValue" change="onGetValue">
+									<suggestionColumns>
+										<Column id="iC01" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="illk01" text="Number"/>
+										</Column>
+										<Column id="iC02" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="illk02" text="Description"/>
+										</Column>
+									</suggestionColumns>
+									<suggestionRows>
+										<ColumnListItem id="iCl01">
+											<cells>
+												<Label id="iCc01" text="{Kunnr}"/>
+												<Label id="iCc02" text="{Name1}"/>
+											</cells>
+										</ColumnListItem>
+									</suggestionRows>
+								</Input>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge05">
+							<sf:elements>
+								<Label id="lEdatu" text="{i18n>Edatu}" labelFor="Edatu"/>
+								<DatePicker id="Edatu" placeholder="{i18n>Edatu}" change="onGetValue"/>
+								<!--<Input id="Edatu" showValueHelp="true" placeholder="{i18n>Edatu}" valueHelpRequest="onVH_Edatu" value="{FieldsAvailableSet>/Edatu}"/>-->
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge08">
+							<sf:elements>
+								<Label id="lZzbnd" text="{i18n>Zzbnd}" labelFor="Zzbnd"/>
+								<DatePicker id="Zzbnd" placeholder="{i18n>Zzbnd}" change="onGetValue"/>
+								<!--<Input id="Zzbnd" showValueHelp="true" placeholder="{i18n>Zzbnd}" valueHelpRequest="onVH_Zzbnd" value="{FieldsAvailableSet>/Zzbnd}"/>-->
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge10">
+							<sf:elements>
+								<Label id="lZzjob" text="{i18n>Zzjob}" labelFor="Zzjob"/>
+								<Input id="Zzjob" placeholder="{i18n>Zzjob}" change="onGetValue"/>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge18">
+							<sf:elements>
+								<Label id="lZzpwt" text="{i18n>Zzpwt}" labelFor="Zzpwt"/>
+								<ComboBox id="Zzpwt" placeholder="{i18n>Zzpwt}" change="onGetValue">
+									<core:Item id="Zzpwt01" key="Y" text="Yes"/>
+									<core:Item id="Zzpwt02" key="N" text="No"/>
+								</ComboBox>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge17">
+							<sf:elements>
+								<Label id="lZzssf" text="{i18n>Zzssf}" labelFor="Zzssf"/>
+								<ComboBox id="Zzssf" placeholder="{i18n>Zzssf}" change="onGetValue">
+									<core:Item id="Zzssf01" key="Y" text="Yes"/>
+									<core:Item id="Zzssf02" key="N" text="No"/>
+								</ComboBox>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge20">
+							<sf:elements>
+								<Label id="lZzppi" text="{i18n>Zzppi}" labelFor="Zzppi"/>
+								<Input id="Zzppi" placeholder="{i18n>Zzppi}" change="onGetValue"/>
+							</sf:elements>
+						</sf:GroupElement>
+					</sf:Group>
+					<sf:Group id="g02">
+						<sf:GroupElement id="ge07">
+							<sf:elements>
+								<Label id="lKunwe" text="{i18n>Kunwe}" labelFor="Kunwe"/>
+								<Input id="Kunwe" showValueHelp="true" placeholder="{i18n>Kunwe}" valueHelpRequest="onValueHelp" showSuggestion="true"
+									suggestionRows="{/shKunweSet}" suggestionItemSelected="onGetValue" change="onGetValue">
+									<suggestionColumns>
+										<Column id="iC03" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill03" text="Number"/>
+										</Column>
+										<Column id="iC04" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill04" text="Description"/>
+										</Column>
+									</suggestionColumns>
+									<suggestionRows>
+										<ColumnListItem id="iCl02">
+											<cells>
+												<Label id="iCc03" text="{Kunwe}"/>
+												<Label id="iCc04" text="{Name1}"/>
+											</cells>
+										</ColumnListItem>
+									</suggestionRows>
+								</Input>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge11">
+							<sf:elements>
+								<Label id="lZzfreightTerms" text="{i18n>ZzfreightTerms}" labelFor="ZzfreightTerms"/>
+								<Input id="ZzfreightTerms" showValueHelp="true" placeholder="{i18n>ZzfreightTerms}" valueHelpRequest="onValueHelp" showSuggestion="true"
+									suggestionRows="{/shFreightTermsSet}" suggestionItemSelected="onGetValue" change="onGetValue">
+									<suggestionColumns>
+										<Column id="iC05" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill05" text="Terms"/>
+										</Column>
+										<Column id="iC06" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill06" text="Description"/>
+										</Column>
+									</suggestionColumns>
+									<suggestionRows>
+										<ColumnListItem id="iCl07">
+											<cells>
+												<Label id="iCc05" text="{ZzfreightTerms}"/>
+												<Label id="iCc06" text="{Name}"/>
+											</cells>
+										</ColumnListItem>
+									</suggestionRows>
+								</Input>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge12">
+							<sf:elements>
+								<Label id="lVsart" text="{i18n>Vsart}" labelFor="Vsart"/>
+								<Input id="Vsart" showValueHelp="true" placeholder="{i18n>Vsart}" valueHelpRequest="onValueHelp" showSuggestion="true"
+									suggestionRows="{/shVsartSet}" suggestionItemSelected="onGetValue" change="onGetValue">
+									<suggestionColumns>
+										<Column id="i12C01" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="i12ll01" text="Type"/>
+										</Column>
+										<Column id="i12C02" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="i12ll02" text="Description"/>
+										</Column>
+									</suggestionColumns>
+									<suggestionRows>
+										<ColumnListItem id="i12Cl01">
+											<cells>
+												<Label id="i12Cc01" text="{Vsart}"/>
+												<Label id="i12Cc02" text="{Bezei}"/>
+											</cells>
+										</ColumnListItem>
+									</suggestionRows>
+								</Input>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge13">
+							<sf:elements>
+								<Label id="lZzshipCode" text="{i18n>ZzshipCode}" labelFor="ZzshipCode"/>
+								<Input id="ZzshipCode" showValueHelp="true" placeholder="{i18n>ZzshipCode}" valueHelpRequest="onValueHelp" showSuggestion="true"
+									suggestionRows="{/shShipCodeSet}" suggestionItemSelected="onGetValue" change="onGetValue">
+									<suggestionColumns>
+										<Column id="iC08" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill07" text="Code"/>
+										</Column>
+										<Column id="iC09" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill08" text="Description"/>
+										</Column>
+									</suggestionColumns>
+									<suggestionRows>
+										<ColumnListItem id="iCl010">
+											<cells>
+												<Label id="iCc07" text="{ZzshipCode}"/>
+												<Label id="iCc08" text="{Name}"/>
+											</cells>
+										</ColumnListItem>
+									</suggestionRows>
+								</Input>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge14">
+							<sf:elements>
+								<Label id="lZzsdc" text="{i18n>Zzsdc}" labelFor="Zzsdc"/>
+								<Input id="Zzsdc" showValueHelp="true" placeholder="{i18n>Zzsdc}" valueHelpRequest="onValueHelp" showSuggestion="true"
+									suggestionRows="{/shZzsdcSet}" suggestionItemSelected="onGetValue" change="onGetValue">
+									<suggestionColumns>
+										<Column id="iC11" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill09" text="Code"/>
+										</Column>
+										<Column id="iC12" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill10" text="Customer"/>
+										</Column>
+										<Column id="iC13" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill11" text="Description"/>
+										</Column>										
+									</suggestionColumns>
+									<suggestionRows>
+										<ColumnListItem id="iCl14">
+											<cells>
+												<Label id="iCc09" text="{Zzsdc}"/>
+												<Label id="iCc10" text="{Kunnr}"/>
+												<Label id="iCc11" text="{Name1}"/>
+											</cells>
+										</ColumnListItem>
+									</suggestionRows>
+								</Input>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge15">
+							<sf:elements>
+								<Label id="lZzshp" text="{i18n>Zzshp}" labelFor="Zzshp"/>
+								<Input id="Zzshp" placeholder="{i18n>Zzshp}" change="onGetValue"/>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge16">
+							<sf:elements>
+								<Label id="lZzroute" text="{i18n>Zzroute}" labelFor="Zzroute"/>
+								<Input id="Zzroute" placeholder="{i18n>Zzroute}" change="onGetValue"/>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge19">
+							<sf:elements>
+								<Label id="lZzaft" text="{i18n>Zzaft}" labelFor="Zzaft"/>
+								<ComboBox id="Zzaft" placeholder="{i18n>Zzaft}" change="onGetValue">
+									<core:Item id="Zzaft01" key="Y" text="Yes"/>
+									<core:Item id="Zzaft02" key="N" text="No"/>
+								</ComboBox>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge06">
+							<sf:elements>
+								<Label id="lLifsp" text="{i18n>Lifsp}" labelFor="Lifsp"/>
+								<Input id="Lifsp" showValueHelp="true" placeholder="{i18n>Lifsp}" valueHelpRequest="onValueHelp" showSuggestion="true"
+									suggestionRows="{/shLifspSet}" suggestionItemSelected="onGetValue" change="onGetValue">
+									<suggestionColumns>
+										<Column id="iC14" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill12" text="Code"/>
+										</Column>
+										<Column id="iC15" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill13" text="Description"/>
+										</Column>
+									</suggestionColumns>
+									<suggestionRows>
+										<ColumnListItem id="iCl16">
+											<cells>
+												<Label id="iCc12" text="{Lifsp}"/>
+												<Label id="iCc13" text="{Vtext}"/>
+											</cells>
+										</ColumnListItem>
+									</suggestionRows>
+								</Input>
+							</sf:elements>
+						</sf:GroupElement>
+						<!--<sf:GroupElement id="ge30">-->
+						<!--	<sf:elements>-->
+						<!--		<Label id="lReason" text="{i18n>Reason}" labelFor="Reason"/>-->
+						<!--		<TextArea id="Reason" wrapping="Soft" placeholder="Reason" cols="100" rows="3" change="onGetValue"/>								-->
+						<!--	</sf:elements>-->
+						<!--</sf:GroupElement>-->
+
+					</sf:Group>
+					<sf:Group id="g03">
+						<sf:GroupElement id="ge21">
+							<sf:elements>
+								<Label id="lMatnr" text="{i18n>Matnr}" labelFor="Matnr"/>
+								<Input id="Matnr" showValueHelp="true" placeholder="{i18n>Matnr}" valueHelpRequest="onValueHelp" showSuggestion="true"
+									suggestionRows="{/shMatnrSet}" suggestionItemSelected="onGetValue" change="onGetValue">
+									<suggestionColumns>
+										<Column id="iC16" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill14" text="Number"/>
+										</Column>
+										<Column id="iC17" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill15" text="Description"/>
+										</Column>
+									</suggestionColumns>
+									<suggestionRows>
+										<ColumnListItem id="iCl18">
+											<cells>
+												<Label id="iCc14" text="{Matnr}"/>
+												<Label id="iCc15" text="{Maktg}"/>
+											</cells>
+										</ColumnListItem>
+									</suggestionRows>
+								</Input>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge22">
+							<sf:elements>
+								<Label id="lBmeng" text="{i18n>Bmeng}" labelFor="Bmeng"/>
+								<Input id="Bmeng" placeholder="{i18n>Bmeng}" change="onGetValue"/>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge23">
+							<sf:elements>
+								<Label id="lVrkme" text="{i18n>Vrkme}" labelFor="Vrkme"/>
+								<Input id="Vrkme" showValueHelp="true" placeholder="{i18n>Vrkme}" valueHelpRequest="onValueHelp" showSuggestion="true"
+									suggestionRows="{/shVrkmeSet}" suggestionItemSelected="onGetValue" change="onGetValue">
+									<suggestionColumns>
+										<Column id="iC22" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill20" text="Unit"/>
+										</Column>
+										<Column id="iC23" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill21" text="Description"/>
+										</Column>
+										<Column id="iC24" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill22" text="Dimension"/>
+										</Column>
+									</suggestionColumns>
+									<suggestionRows>
+										<ColumnListItem id="iCl22">
+											<cells>
+												<Label id="iCc18" text="{Vrkme}"/>
+												<Label id="iCc19" text="{Measurement}"/>
+												<Label id="iCc20" text="{Dimension}"/>
+											</cells>
+										</ColumnListItem>
+									</suggestionRows>
+								</Input>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge24">
+							<sf:elements>
+								<Label id="lKdmat" text="{i18n>Kdmat}" labelFor="Kdmat"/>
+								<Input id="Kdmat" placeholder="{i18n>Kdmat}" change="onGetValue"/>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge25">
+							<sf:elements>
+								<Label id="lZzapp" text="{i18n>Zzapp}" labelFor="Zzapp"/>
+								<Input id="Zzapp" showValueHelp="true" placeholder="{i18n>Zzapp}" valueHelpRequest="onValueHelp" showSuggestion="true"
+									suggestionRows="{/shZzappSet}" suggestionItemSelected="onGetValue" change="onGetValue">
+									<suggestionColumns>
+										<Column id="iC19" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill16" text="Code"/>
+										</Column>
+										<Column id="iC20" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill17" text="Description"/>
+										</Column>
+									</suggestionColumns>
+									<suggestionRows>
+										<ColumnListItem id="iCl21">
+											<cells>
+												<Label id="iCc16" text="{Zzapp}"/>
+												<Label id="iCc17" text="{Name}"/>
+											</cells>
+										</ColumnListItem>
+									</suggestionRows>
+								</Input>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge26">
+							<sf:elements>
+								<Label id="lPlThickness" text="{i18n>PlThickness}" labelFor="PlThickness"/>
+								<Input id="PlThickness" placeholder="{i18n>PlThickness}" change="onGetValue"/>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge27">
+							<sf:elements>
+								<Label id="lPlWidth" text="{i18n>PlWidth}" labelFor="PlWidth"/>
+								<Input id="PlWidth" placeholder="{i18n>PlWidth}" change="onGetValue"/>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge28">
+							<sf:elements>
+								<Label id="lPlLength" text="{i18n>PlLength}" labelFor="PlLength"/>
+								<Input id="PlLength" placeholder="{i18n>PlLength}" change="onGetValue"/>
+							</sf:elements>
+						</sf:GroupElement>
+						<sf:GroupElement id="ge09">
+							<sf:elements>
+								<Label id="lAbgru" text="{i18n>Abgru}" labelFor="Abgru"/>
+								<Input id="Abgru" showValueHelp="true" placeholder="{i18n>Abgru}" valueHelpRequest="onValueHelp" showSuggestion="true"
+									suggestionRows="{/shAbgruSet}" suggestionItemSelected="onGetValue" change="onGetValue">
+									<suggestionColumns>
+										<Column id="iC25" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill25" text="Number"/>
+										</Column>
+										<Column id="iC26" hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+											<Label id="ill26" text="Description"/>
+										</Column>
+									</suggestionColumns>
+									<suggestionRows>
+										<ColumnListItem id="iCl25">
+											<cells>
+												<Label id="iCc25" text="{Abgru}"/>
+												<Label id="iCc26" text="{Bezei}"/>
+											</cells>
+										</ColumnListItem>
+									</suggestionRows>
+								</Input>
+							</sf:elements>
+						</sf:GroupElement>
+						<!--<sf:GroupElement id="ge31">-->
+						<!--	<sf:elements>-->
+						<!--		<Label id="lComment" text="{i18n>Comment}" labelFor="Comment"/>-->
+						<!--		<TextArea id="Comment" wrapping="Soft" placeholder="Comment" cols="100" rows="3" change="onGetValue"/>								-->
+						<!--	</sf:elements>-->
+						<!--</sf:GroupElement>-->
+						
+					</sf:Group>
+				</sf:groups>
+			</sf:SmartForm>
+			<Panel expandable="true" expanded="false" headerText="Reason" width="auto" class="sapUiResponsiveMargin">
+				<content>
+					<TextArea id="Reason" wrapping="Soft" placeholder="Reason" cols="80" rows="3" change="onGetValue"/>
+				</content>
+			</Panel>	
+			<Panel expandable="true" expanded="false" headerText="Comments" width="auto" class="sapUiResponsiveMargin">
+				<content>
+					<TextArea id="Comment" wrapping="Soft" placeholder="Comment" cols="80" rows="3" change="onGetValue"/>
+				</content>
+			</Panel>
+			
+			<!--<sf:SmartForm id="multiEdit1" editable="true" >-->
+			<!--	<sf:layout>-->
+			<!--		<sf:Layout id="ll02" labelSpanM="10" labelSpanL="10" labelSpanXL="10"/> -->
+			<!--	</sf:layout>-->
+			<!--	<sf:groups>-->
+			<!--		<sf:Group id="g04">-->
+			<!--			<sf:GroupElement id="ge30">-->
+			<!--				<sf:elements>-->
+			<!--					<Label id="lReason" text="{i18n>Reason}" labelFor="Reason"/>-->
+			<!--					<TextArea id="Reason" wrapping="Soft" placeholder="Reason" cols="50" rows="3" change="onGetValue"/>-->
+			<!--				</sf:elements>	-->
+			<!--			</sf:GroupElement>-->
+			<!--		</sf:Group>	-->
+					
+			<!--		<sf:Group id="g05">	-->
+			<!--			<sf:GroupElement id="ge31">-->
+			<!--				<sf:elements>-->
+			<!--					<Label id="lComment" text="{i18n>Comment}" labelFor="Comment"/>-->
+			<!--					<TextArea id="Comment" wrapping="Soft" placeholder="Comment" cols="50" rows="3" change="onGetValue"/>-->
+			<!--				</sf:elements>-->
+			<!--			</sf:GroupElement>-->
+			<!--		</sf:Group>-->
+			<!--	</sf:groups>-->
+			<!--</sf:SmartForm>	-->
+			
+
+		</content>
+		<buttons>
+			<Button id="btn1" text="Save" press="onDialogSaveButton" type="Emphasized"/>
+			<Button id="btn2" text="Cancel" press="onCloseDialog"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

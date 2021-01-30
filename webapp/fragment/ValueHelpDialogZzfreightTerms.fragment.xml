@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="sdZzfreightTerms"
+		noDataText="No Found"
+		title="Freight Terms"
+		search=".onValueHelpSearch"
+		confirm=".onValueHelpClose"
+		cancel=".onValueHelpClose"
+		items="{/shFreightTermsSet}" 
+		contentHeight="20em"
+		contentWidth="15em">
+		<ColumnListItem id="cli91">
+			<cells>
+				<ObjectIdentifier id="cel91" text="{ZzfreightTerms}" />
+				<Text id="cel92" text="{Name}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column id="col91" width="4em">
+				<header>
+					<Text id="colt91" text="Terms" />
+				</header>
+			</Column>
+			<Column id="col92" width="10em">
+				<header>
+					<Text id="colt92" text="Description" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

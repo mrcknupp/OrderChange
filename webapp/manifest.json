@@ -1,0 +1,285 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "soch.otc274Monitor",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"resources": "resources.json",
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/ZOTC_SOCH_MONITOR_SRV/",
+				"type": "OData",
+				"settings": {
+					"annotations": [
+						"ZOTC_SOCH_MONITOR_ANNO_MDL"
+					],
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"ZOTC_SOCH_MONITOR_ANNO_MDL": {
+				"uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZOTC_SOCH_MONITOR_ANNO_MDL',Version='0001')/$value/",
+				"type": "ODataAnnotation",
+				"settings": {
+					"localUri": "localService/ZOTC_SOCH_MONITOR_ANNO_MDL.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "sap.ui.ui5-template-plugin.1worklist",
+			"version": "1.82.2"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"fullWidth": true,
+		"icons": {
+			"icon": "sap-icon://task",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "soch.otc274Monitor.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.52.36",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.f": {},
+				"sap.ushell": {},
+				"sap.collaboration": {
+					"lazy": true
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "soch.otc274Monitor.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			}
+		},
+		"services": {
+			"ShellUIService": {
+				"factoryName": "sap.ushell.ui5service.ShellUIService",
+				"lazy": false,
+				"settings": {
+					"setTitle": "auto"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			],
+			"js": [
+				{
+					"uri": "components/Version.js"
+				},
+				{
+					"uri": "components/Action.js"
+				},
+				{
+					"uri": "components/Vsart.js"
+				},
+				{
+					"uri": "components/Bstdk.js"
+				},
+				{
+					"uri": "components/Edatu.js"
+				},
+				{
+					"uri": "components/Zzbnd.js"
+				},
+				{
+					"uri": "components/Kunnr.js"
+				},
+				{
+					"uri": "components/Kunwe.js"
+				},
+				{
+					"uri": "components/ZzfreightTerms.js"
+				},
+				{
+					"uri": "components/ZzshipCode.js"
+				},
+				{
+					"uri": "components/Zzsdc.js"
+				},
+				{
+					"uri": "components/Zzcode.js"
+				},
+				{
+					"uri": "components/Mark.js"
+				},
+				{
+					"uri": "components/Reason.js"
+				},
+				{
+					"uri": "components/Comment.js"
+				},
+				{
+					"uri": "components/Lifsp.js"
+				},
+				{
+					"uri": "components/Matnr.js"
+				},
+				{
+					"uri": "components/Abgru.js"
+				},
+				{
+					"uri": "components/Zzapp.js"
+				},
+				{
+					"uri": "components/Vrkme.js"
+				},
+				{
+					"uri": "components/Bstkd.js"
+				},
+				{
+					"uri": "components/Posex.js"
+				},
+				{
+					"uri": "components/Zzjob.js"
+				},
+				{
+					"uri": "components/Zzppi.js"
+				},
+				{
+					"uri": "components/Zzshp.js"
+				},
+				{
+					"uri": "components/Zzroute.js"
+				},
+				{
+					"uri": "components/Bmeng.js"
+				},
+				{
+					"uri": "components/Kdmat.js"
+				},
+				{
+					"uri": "components/PlThickness.js"
+				},
+				{
+					"uri": "components/PlWidth.js"
+				},
+				{
+					"uri": "components/PlLength.js"
+				},
+				{
+					"uri": "components/Zzpwt.js"
+				},
+				{
+					"uri": "components/Zzssf.js"
+				},
+				{
+					"uri": "components/Zzaft.js"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "soch.otc274Monitor.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": [
+						"notFound"
+					]
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "worklist",
+					"target": [
+						"worklist"
+					]
+				},
+				{
+					"pattern": "versionFullSet/{objectId}",
+					"name": "object",
+					"target": [
+						"object"
+					]
+				},
+				{
+					"pattern": "instructions/{objects}",
+					"name": "instructions",
+					"target": [
+						"instructions"
+					]
+				}
+			],
+			"targets": {
+				"worklist": {
+					"viewName": "Worklist",
+					"viewId": "worklist",
+					"viewLevel": 1,
+					"title": "{i18n>worklistViewTitle}"
+				},
+				"object": {
+					"viewName": "Object",
+					"viewId": "object",
+					"viewLevel": 2,
+					"title": "{i18n>objectViewTitle}"
+				},
+				"instructions": {
+					"viewName": "Instructions",
+					"viewId": "instructions",
+					"viewLevel": 3,
+					"title": "{i18n>Instructions}"
+				},
+				"objectNotFound": {
+					"viewName": "ObjectNotFound",
+					"viewId": "objectNotFound"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				}
+			}
+		},
+		"flexEnabled": true
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zotc274monitor/webapp",
+		"_version": "1.1.0"
+	}
+}

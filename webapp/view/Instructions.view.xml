@@ -1,0 +1,320 @@
+<mvc:View controllerName="soch.otc274Monitor.controller.Instructions" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table"
+	xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:semantic="sap.f.semantic" xmlns:footerbar="sap.ushell.ui.footerbar">
+	<!--<VBox id="v01" fitContainer="true">-->
+	<!--<ScrollContainer id="sc01" vertical="true" >-->
+	<semantic:SemanticPage id="page" headerPinnable="true" toggleHeaderOnTitleClick="true">
+		<semantic:titleHeading>
+			<Title id="t01" text="Instructions" class="Subtitle sapUiMediumMarginTop"/>
+		</semantic:titleHeading>
+		
+		<!--<semantic:titleCustomTextActions>-->
+		<!--	<Button id="btCreateUpdate" text="Create/Update" press="onCreateUpdate"/>-->
+		<!--	<Button id="btDelete" text="Delete" press="onDelete"/>-->
+		<!--	<Button id="btBack" text="Back" press="onNavBack" type="Emphasized"/>-->
+		<!--</semantic:titleCustomTextActions>-->
+		
+		<semantic:headerContent>
+			<HBox width="100%" id="hbox0" class="sapUiTinyMarginTop" alignContent="Start" alignItems="Start" justifyContent="End">
+				<Button id="btCreateUpdate" class="sapUiTinyMarginBegin" text="Create/Update" press="onCreateUpdate"/>
+				<Button id="btDelete" class="sapUiTinyMarginBegin" text="Delete" press="onDelete"/>
+				<Button id="btBack" class="sapUiTinyMarginBegin" text="Back" press="onNavBack" type="Emphasized"/>
+			</HBox>
+			
+			<FlexBox id="flex01" alignItems="Start" justifyContent="SpaceBetween">
+				<items>
+					<Panel id="p01" backgroundDesign="Transparent">
+						<content>
+							<Table id="gmitsuTable" inset="false" width="50%" items="{path:'/gmitsuOrdersSet'}">
+								<columns>
+									<Column  id="tbCso01" minScreenWidth="Tablet" demandPopin="true">
+										<Text id="tbTso01" text="Sales Orders"/>
+									</Column>
+									<Column id="tbCso02" minScreenWidth="Tablet" demandPopin="true">
+										<Text id="tbTso02" text="Item"/>
+									</Column>
+									<Column id="tbCso03" minScreenWidth="Tablet" demandPopin="true">
+										<Text id="tbTso03" text="Version"/>
+									</Column>
+									<Column id="tbCso04" minScreenWidth="Tablet" demandPopin="true">
+										<Text id="tbTso04" text="Change Status"/>
+									</Column>									
+								</columns>
+								<items>
+									<ColumnListItem id="gmitsuLines" vAlign="Middle">
+										<cells>
+											<Text id="tbCTso01" text="{Vbeln}"/>
+											<Text id="tbCTso02" text="{Posnr}"/>
+											<Text id="tbCTso03" text="{Version}"/>
+											<Text id="tbCTso04" text="{Status}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</Panel>
+				</items>
+			</FlexBox>
+		</semantic:headerContent>
+		
+		<semantic:content>
+			<VBox id="vbox001">
+				<!--First line-->
+				<HBox id="hbox00" width="100%" class="sapUiTinyMarginTop" alignContent="Start" alignItems="Start">
+					<VBox id="vbox1" width="49.5%">
+						<!--1st table-->
+						<t:Table id="table11" rows="{/instMillSet}" visibleRowCount="8" selectionMode="MultiToggle">
+							<t:toolbar>
+								<Toolbar id="ttb01">
+									<Title id="ttext01" text="Mill" class="Topicos"/>
+									<ToolbarSpacer id="tspace01"/>
+									<Button id="ttb01A" icon="sap-icon://add"  press="addRows" />
+									<Button id="ttb01L" icon="sap-icon://less" press="lessRows"/>
+								</Toolbar>
+							</t:toolbar>
+							<t:columns >
+								<t:Column id="c01" width="9rem" sortProperty="Code" filterProperty="Code" defaultFilterOperator="StartsWith">
+									<Label id="l01" text="Code"/>
+									<t:template>
+										<Input id="te01" value="{Zzcode}" editable="false" showValueHelp="true" valueHelpRequest="onValueHelp"/>
+									</t:template>
+								</t:Column>
+								<t:Column id="c02" width="20rem" sortProperty="Description" filterProperty="Description" defaultFilterOperator="StartsWith">
+									<Label id="l02" text="Description"/>
+									<t:template>
+										<Input id="te02" value="{Zzdescr}" editable="false"/>
+									</t:template>
+								</t:Column>
+								<t:Column id="c03" width="20rem" sortProperty="User Parameters" filterProperty="User Parameters" defaultFilterOperator="StartsWith">
+									<Label id="l03" text="User Parameters"/>
+									<t:template>
+										<Input id="te03" value="{Zzusrprm}" editable="false"  change="onGetValue"/>
+									</t:template>
+								</t:Column>
+							</t:columns>
+						</t:Table>
+					</VBox>
+					<VBox id="vbox000" width="1%"></VBox>
+					<VBox id="vbox2" width="49.5%">
+						<!--2nd table-->
+						<t:Table id="table21" rows="{/instSuppSet}" visibleRowCount="8" selectionMode="MultiToggle">
+							<t:toolbar>
+								<Toolbar id="ttb02">
+									<Title id="ttext02" text="Supplemental" class="Topicos"/>
+									<ToolbarSpacer id="tspace02"/>
+									<Button id="ttb02A" icon="sap-icon://add" press="addRows" />
+									<Button id="ttb02L" icon="sap-icon://less" press="lessRows"/>
+								</Toolbar>
+							</t:toolbar>
+							<t:columns >
+								<t:Column id="c11" width="9rem" sortProperty="Code" filterProperty="Code" defaultFilterOperator="StartsWith">
+									<Label id="l11" text="Code"/>
+									<t:template>
+										<Input id="te11" value="{Zzcode}" editable="false" showValueHelp="true" valueHelpRequest="onValueHelp"/>
+									</t:template>
+								</t:Column>
+								<t:Column id="c12" width="20rem" sortProperty="Description" filterProperty="Description" defaultFilterOperator="StartsWith">
+									<Label id="l12" text="Description"/>
+									<t:template>
+										<Input id="te12" value="{Zzdescr}" editable="false"/>
+									</t:template>
+								</t:Column>
+								<t:Column id="c13" width="20rem" sortProperty="User Parameters" filterProperty="User Parameters" defaultFilterOperator="StartsWith">
+									<Label id="l13" text="User Parameters"/>
+									<t:template>
+										<Input id="te13" value="{Zzusrprm}" editable="false" change="onGetValue"/>
+									</t:template>
+								</t:Column>
+							</t:columns>
+						</t:Table>
+					</VBox>
+				</HBox>
+				<!--Second line-->
+				<HBox width="100%" id="hbox2" class="sapUiMediumMarginTop" alignContent="Start" alignItems="Start">
+					<VBox id="vbox11" width="49.5%">
+						<!--3rd table-->
+						<t:Table id="table31" rows="{/instToleSet}" visibleRowCount="8" selectionMode="MultiToggle">
+							<t:toolbar>
+								<Toolbar id="ttb03">
+									<Title id="ttext03" text="Tolerance" class="Topicos"/>
+									<ToolbarSpacer id="tspace03"/>
+									<Button id="ttb03A" icon="sap-icon://add" press="addRows" />
+									<Button id="ttb03L" icon="sap-icon://less" press="lessRows"/>
+								</Toolbar>
+							</t:toolbar>
+							<t:columns >
+								<t:Column id="c21" width="9rem" sortProperty="Code" filterProperty="Code" defaultFilterOperator="StartsWith">
+									<Label id="l21" text="Code"/>
+									<t:template>
+										<Input id="te21" value="{Zzcode}" editable="false" showValueHelp="true" valueHelpRequest="onValueHelp"/>
+									</t:template>
+								</t:Column>
+								<t:Column id="c22" width="20rem" sortProperty="Description" filterProperty="Description" defaultFilterOperator="StartsWith">
+									<Label id="l22" text="Description"/>
+									<t:template>
+										<Input id="te22" value="{Zzdescr}" editable="false"/>
+									</t:template>
+								</t:Column>
+								<t:Column id="c23" width="20rem" sortProperty="User Parameters" filterProperty="User Parameters" defaultFilterOperator="StartsWith">
+									<Label id="l23" text="User Parameters"/>
+									<t:template>
+										<Input id="te23" value="{Zzusrprm}" editable="false" change="onGetValue"/>
+									</t:template>
+								</t:Column>
+							</t:columns>
+						</t:Table>
+					</VBox>
+					<VBox id="vbox111" width="1%"></VBox>
+					<VBox id="vbox12" width="49.5%">
+						<!--4th table-->
+						<t:Table id="table41" rows="{/instPNLSet}" visibleRowCount="8" selectionMode="MultiToggle">
+							<t:toolbar>
+								<Toolbar id="ttb04">
+									<Title id="ttext04" text="Pack and Load" class="Topicos"/>
+									<ToolbarSpacer id="tspace04"/>
+									<Button id="ttb04A" icon="sap-icon://add" press="addRows" />
+									<Button id="ttb04L" icon="sap-icon://less" press="lessRows"/>
+								</Toolbar>
+							</t:toolbar>
+							<t:columns >
+								<t:Column id="c31" width="9rem" sortProperty="Code" filterProperty="Code" defaultFilterOperator="StartsWith">
+									<Label id="l31" text="Code"/>
+									<t:template>
+										<Input id="te31" value="{Zzcode}" editable="false" showValueHelp="true" valueHelpRequest="onValueHelp"/>
+									</t:template>
+								</t:Column>
+								<t:Column id="c32" width="17rem" sortProperty="Description" filterProperty="Description" defaultFilterOperator="StartsWith">
+									<Label id="l32" text="Description"/>
+									<t:template>
+										<Input id="te32" value="{Zzdescr}" editable="false"/>
+									</t:template>
+								</t:Column>
+								<t:Column id="c33" width="6rem" sortProperty="Keyword" filterProperty="Keyword" defaultFilterOperator="StartsWith">
+									<Label id="l33" text="Keyword"/>
+									<t:template>
+										<Input id="te33" value="{Zzkeyword}" editable="false"/>
+									</t:template>
+								</t:Column>
+								<t:Column id="c34" width="20rem" sortProperty="User Parameters" filterProperty="User Parameters" defaultFilterOperator="StartsWith">
+									<Label id="l34" text="User Parameters"/>
+									<t:template>
+										<Input id="te34" value="{Zzusrprm}" editable="false" change="onGetValue"/>
+									</t:template>
+								</t:Column>
+							</t:columns>
+						</t:Table>
+					</VBox>
+				</HBox>
+				<HBox width="100%" id="hbox3" class="sapUiMediumMarginTop" alignContent="Start" alignItems="Start" >
+					<VBox id="vbox21" width="100%">
+						<!--5th table-->
+						<t:Table id="table51" rows="{/instMarkSet}" visibleRowCount="8" selectionMode="MultiToggle">
+							<t:toolbar>
+								<Toolbar id="ttb05">
+									<Title id="ttext05" text="Mark" class="Topicos"/>
+									<ToolbarSpacer id="tspace05"/>
+									<Button id="ttb05A" icon="sap-icon://add" press="addRows" />
+									<Button id="ttb05L" icon="sap-icon://less" press="lessRows"/>
+								</Toolbar>
+							</t:toolbar>
+							<t:columns >
+								<t:Column id="c51" width="10rem" sortProperty="Mark" filterProperty="Mark" defaultFilterOperator="StartsWith">
+									<Label id="l51" text="Mark"/>
+									<t:template>
+										<Input id="te51" value="{Zzmark}" editable="false" showValueHelp="true" valueHelpRequest="onValueHelp"/>
+									</t:template>
+								</t:Column>
+								<t:Column id="c52" width="10rem" sortProperty="Type" filterProperty="Type" defaultFilterOperator="StartsWith">
+									<Label id="l52" text="Type"/>
+									<t:template>
+										<Input id="te52" value="{Zztype}" editable="false" showValueHelp="true" valueHelpRequest="onValueHelp"/>
+									</t:template>
+								</t:Column>
+								<t:Column id="c53" width="15rem" sortProperty="Parameters" filterProperty="Parameters" defaultFilterOperator="StartsWith">
+									<Label id="l53" text="Parameters"/>
+									<t:template>
+										<Input id="te53" value="{Zzparam1}" editable="false" change="onGetValue"/>
+									</t:template>
+								</t:Column>
+								<t:Column id="c54" width="10rem" sortProperty="Position" filterProperty="Position" defaultFilterOperator="StartsWith">
+									<Label id="l54" text="Position"/>
+									<t:template>
+										<Input id="te54" value="{Zzposition}" editable="false" showValueHelp="true" valueHelpRequest="onValueHelp"/>
+									</t:template>
+								</t:Column>
+								<t:Column id="c55" width="15rem" sortProperty="Parameters" filterProperty="Parameters" defaultFilterOperator="StartsWith">
+									<Label id="l55" text="Parameters"/>
+									<t:template>
+										<Input id="te55" value="{Zzparam2}" editable="false" change="onGetValue"/>
+									</t:template>
+								</t:Column>
+								<t:Column id="c56" width="10rem" sortProperty="Colour" filterProperty="Colour" defaultFilterOperator="StartsWith">
+									<Label id="l56" text="Colour"/>
+									<t:template>
+										<Input id="te56" value="{Zzcolour}" editable="false" change="onGetValue" showValueHelp="true" valueHelpRequest="onValueHelp"/>
+									</t:template>
+								</t:Column>
+								<t:Column id="c57" width="10rem" sortProperty="Instruction" filterProperty="Instruction" defaultFilterOperator="StartsWith">
+									<Label id="l57" text="Instruction"/>
+									<t:template>
+										<Input id="te57" value="{Zzinstruction}" editable="false" change="onGetValue" showValueHelp="true" valueHelpRequest="onValueHelp"/>
+									</t:template>
+								</t:Column>
+								<t:Column id="c58" width="15rem" sortProperty="Parameters" filterProperty="Parameters" defaultFilterOperator="StartsWith">
+									<Label id="l58" text="Parameters"/>
+									<t:template>
+										<Input id="te58" value="{Zzparam4}" editable="false" change="onGetValue"/>
+									</t:template>
+								</t:Column>
+							</t:columns>
+						</t:Table>
+					</VBox>
+				</HBox>
+				<HBox width="100%" id="hbox4" class="sapUiTinyMarginTop" alignContent="Start" alignItems="Start" >
+					<VBox id="vbox22" width="29%">
+						<!--6th table-->
+						<!--<t:Table id="table61" rows="{/instPNLSet}" visibleRowCount="8" selectionMode="MultiToggle">-->
+						<!--	<t:toolbar>-->
+						<!--		<Toolbar id="ttb04">-->
+						<!--			<Title id="ttext04" text="Pack and Load" class="Topicos"/>-->
+						<!--			<ToolbarSpacer id="tspace04"/>-->
+						<!--			<Button id="ttb04A" icon="sap-icon://add" press="addRows" />-->
+						<!--			<Button id="ttb04L" icon="sap-icon://less" press="lessRows"/>-->
+						<!--		</Toolbar>-->
+						<!--	</t:toolbar>-->
+						<!--	<t:columns >-->
+						<!--		<t:Column id="c31" width="6.1rem" sortProperty="Code" filterProperty="Code" defaultFilterOperator="StartsWith">-->
+						<!--			<Label id="l31" text="Code"/>-->
+						<!--			<t:template>-->
+						<!--				<Input id="te31" value="{Zzcode}" editable="false" showValueHelp="true" valueHelpRequest="onValueHelp"/>-->
+						<!--			</t:template>-->
+						<!--		</t:Column>-->
+						<!--		<t:Column id="c32" width="17rem" sortProperty="Description" filterProperty="Description" defaultFilterOperator="StartsWith">-->
+						<!--			<Label id="l32" text="Description"/>-->
+						<!--			<t:template>-->
+						<!--				<Input id="te32" value="{Zzdescr}" editable="false"/>-->
+						<!--			</t:template>-->
+						<!--		</t:Column>-->
+						<!--		<t:Column id="c33" width="6rem" sortProperty="Keyword" filterProperty="Keyword" defaultFilterOperator="StartsWith">-->
+						<!--			<Label id="l33" text="Keyword"/>-->
+						<!--			<t:template>-->
+						<!--				<Input id="te33" value="{Zzkeyword}" editable="false"/>-->
+						<!--			</t:template>-->
+						<!--		</t:Column>-->
+						<!--		<t:Column id="c34" width="20rem" sortProperty="User Parameters" filterProperty="User Parameters" defaultFilterOperator="StartsWith">-->
+						<!--			<Label id="l34" text="User Parameters"/>-->
+						<!--			<t:template>-->
+						<!--				<Input id="te34" value="{Zzusrprm}" editable="false" change="onGetValue"/>-->
+						<!--			</t:template>-->
+						<!--		</t:Column>-->
+						<!--	</t:columns>-->
+						<!--</t:Table>-->
+					</VBox>
+				</HBox>	
+			</VBox>
+		</semantic:content>
+	</semantic:SemanticPage>
+	<!--</ScrollContainer>-->
+	<!--</VBox>-->
+</mvc:View>
