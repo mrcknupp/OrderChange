@@ -1,17 +1,56 @@
-#### SAP Fiori Worklist Application Template ####
+Aplicação UI5 - ZOTC274MONITOR
 
-This is your copy of the "SAP Fiori Worklist Application" template - ready for your custom developments!
-You can find the template version in your workspace in the manifest.json file under "sourceTemplate".
+Tela Principal:  Worklist.view.xml
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+-  Filtragem de diferentes campos; -> É montado apartir do annotation model ZOTC_SOCH_MONITOR_ANNO_MDL.xml
+
+- Inclusão/remoção de campos no layout(Sales Orders); -> É montado apartir do annotation model ZOTC_SOCH_MONITOR_ANNO_MDL.xml
+
+- Botão de Instruções(GMITSU) navega para tela de Instruções, com 1 .. N Sales Orders selecionadas; -> Chama Tela Instruction.view.xml
+
+- Botão de Create/Update - Cria ou atualiza campos do versionamento; -> Chama o fragmento de Tela EditDialog.fragment.xml
+
+- Botão Cancel Version - Apaga Versionamento e não tem qualquer iteração com a SO; -> O processamento ocorre no FM ZUS_OTC274_SO_VERSION_CANCEL
+
+- Botão Sales Approval  - Aprova versionamento gerando a modificação na SO, Production Order e por seguinte gerando IDOC para IMS; -> O processamento ocorre no FM ZUS_OTC274_SO_SET_ACTION com Decision "Y"
+
+- Botão Sales Rejection - Tem a mesma funcionalidade do Botão Cancel Version, no entanto não apaga o registro da tabela de LOG e deixa o Status do Versionamento em REJECTED;  -> O processamento ocorre no FM ZUS_OTC274_SO_SET_ACTION com Decision "N"
+
+- Release IDOC - É utilizado para reprocessar o envio do IDOC para o IMS E/OU retomar o envio caso haja algum problema de comunicação durante a transmissão para IMS; -> O processamento ocorre no FM ZUS_OTC274_SO_SET_REVIEW
+    
+Popup com campos para Versionamento e já possui um grande estágio de combinação de preenchimento de campos para versionamento. 
+O processamento dessa tela ocorre no FM ZUS_OTC274_SO_SET_VERSION
+
+ 
 
 
-This app can be deployed standalone or registered to an SAP Fiori Launchpad depending on the selection you initially
-made in the template wizard. All entry points (*.html) can be located via the test.html file in the test folder or the
-respective SAP Web IDE run configurations.
+Tela Instructions:  Instruction.view.xml
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
 
-SAP Web IDE templates are kept up to date with the latest best practices and recommendations, but they are not updated
-automatically! To migrate to a newer version of the template, re-create the template and copy over the changes as needed.
+- Tela de instruções todas as tabelas de GMITSU;
+- Botão de "+" adiciona 1..N linhas nas tabelas; -> O processamento ocorre no Controller Instructions.controller.js;
 
-For more information and documentation of all template features, please refer to the SAPUI5 Demo Kit:
-https://sapui5.hana.ondemand.com/#/topic/a460a7348a6c431a8bd967ab9fb8d918
+- Botão de "-" remove 1..N linhas nas tabelas; -> O processamento ocorre no Controller Instructions.controller.js;
 
-#### Happy Development! ####
+- Botão de Create/Update - Cria ou atualiza os campos de versionamento do GMITSU; -> O processamento ocorre FM ZUS_OTC274_SO_SET_GMITSU;
+
+- Botão de Delete - Similar ao Cancel Version da tela principal, deleta todos os campos em exibição em tela das tabelas de versionamento; -> O processamento ocorre FM ZUS_OTC274_SO_GMITSU_CANCEL;
+
+-  Ao navegar de volta a tela principal, os registros listados serão atualizados para exibir o status corrente do processo.; -> O processamento ocorre no Controller Instructions.controller.js;
+
+
+Tela Version History:  Object.view.xml
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+
+- Exibe todo o histórico de versionamento da Sales Order + Item; -> O processamento ocorre no Controller Object.controller.js;
+
+ 
+- Opções de filtragem e ordenação; -> O processamento ocorre no Controller Object.controller.js;
+
+
+ 
+- Gera excel, Desfaz a filtragem, Desfaz ordenação. Respectivamente.  -> O processamento ocorre no Controller Object.controller.js;
+
